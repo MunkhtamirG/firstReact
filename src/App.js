@@ -1,11 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Test from "./Test.js";
+import Player from "./Player";
 
 function App() {
   return (
     <div className="App">
-      <Test />
+      <Player />
+      <Player />
+      <Player />
     </div>
   );
 }
