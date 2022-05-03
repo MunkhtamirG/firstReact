@@ -1,18 +1,22 @@
 [
   {
     "name": "Erkhes",
-    "age": "15"
+    "age": "15",
+    "score": 25
   },
   {
-    "name": "Erkhes",
-    "age": "15"
+    "name": "Miigaa",
+    "age": "15",
+    "score": 15
   },
   {
-    "name": "Erkhes",
-    "age": "15"
+    "name": "Odko",
+    "age": "15",
+    "score": 35
   },
   {
-    "name": "Erkhes",
-    "age": "15"
+    "name": "Burmaa",
+    "age": "15",
+    "score": 45
   }
 ]
