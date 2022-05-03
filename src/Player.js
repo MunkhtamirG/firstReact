@@ -1,10 +1,9 @@
-import Score from "./Score";
-function Player() {
+import Score from "../src/Score.js";
+function Player(prop) {
   return (
     <div className="box">
-      <span>Name: </span>
+      <h3>{prop.playerData.name}</h3>
       <Score />
-      <span> Points</span>
     </div>
   );
 }

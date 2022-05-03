@@ -1,14 +1,37 @@
 .App {
   text-align: center;
+  border: 1px solid white;
+  width: 50vw;
+  margin: auto;
+  background-color: teal;
 }
 body {
   background-color: rgb(57, 61, 61);
   color: aliceblue;
 }
+.rightSide {
+  display: flex;
+  align-items: center;
+}
+.header {
+  background-color: blue;
+  margin: 0;
+  height: 4vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid wheat;
+  height: 3vh;
+  align-items: center;
+  padding: 15px;
+}
 .box {
-  width: 10vw;
-  margin: auto;
-  margin-top: 70px;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   border: 1px solid white;
 }
