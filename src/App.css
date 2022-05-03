@@ -35,3 +35,10 @@ body {
   justify-content: space-around;
   border: 1px solid white;
 }
+.data {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  width: 6vw;
+  justify-content: space-around;
+}

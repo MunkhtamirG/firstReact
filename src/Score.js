@@ -1,9 +1,8 @@
-function Score() {
-  const score = "  3 points  ";
+function Score(prop) {
   return (
-    <div>
+    <div className="data">
       <button>-</button>
-      {score}
+      <h3>{prop.scoreData}</h3>
       <button>+</button>
     </div>
   );

@@ -6,18 +6,22 @@ let players = [
   {
     name: "Erkhes",
     age: "15",
+    score: 25,
   },
   {
     name: "Miigaa",
     age: "15",
+    score: 15,
   },
   {
     name: "Odko",
     age: "15",
+    score: 35,
   },
   {
     name: "Burmaa",
     age: "15",
+    score: 45,
   },
 ];
 
@@ -33,3 +37,12 @@ function App() {
 }
 
 export default App;
+
+fetch("data/player.json")
+  .then((response) => {
+    return console.log(response);
+  })
+
+  .catch((err) => {
+    console.log(err);
+  });
