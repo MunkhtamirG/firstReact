@@ -1,8 +1,10 @@
 function Score(prop) {
+  console.log(prop.scoreData);
+
   return (
     <div className="data">
       <button>-</button>
-      <h3>{prop.scoreData}</h3>
+      <p> {prop.scoreData}</p>
       <button>+</button>
     </div>
   );
