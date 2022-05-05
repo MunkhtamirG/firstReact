@@ -1,6 +1,7 @@
 import "./App.css";
 import Player from "./Player";
 import Header from "./Header";
+import React, { useState } from "react";
 
 let players = [
   {
@@ -25,12 +26,31 @@ let players = [
   },
 ];
 
-function App() {
+function App(prop) {
+  function modifyScore(name, plusMinus) {
+    if (plusMinus == "+") {
+      players[findPlayerIndex(name)].score++;
+    } else {
+      players[findPlayerIndex(name)].score--;
+    }
+    console.log(players);
+  }
+  function findPlayerIndex(playerName) {
+    let foundIndex = 0;
+    players.map((player, index) => {
+      if (player.name == playerName) {
+        foundIndex = index;
+      }
+    });
+    return foundIndex;
+  }
   return (
     <div className="App">
       <Header />
       {players.map((player, index) => {
-        return <Player key={index} playerData={player} />;
+        return (
+          <Player key={index} playerData={player} modifyScore={modifyScore} />
+        );
       })}
     </div>
   );

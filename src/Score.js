@@ -1,10 +1,16 @@
 function Score(prop) {
-  console.log(prop.scoreData);
+  function handler(e) {
+    if (e.target.textContent == "+") {
+      prop.modifyScore(prop.playerData.name, "+");
+    } else {
+      prop.modifyScore(prop.playerData.name, "-");
+    }
+  }
   return (
     <div className="data">
-      <button>-</button>
-      <p>{prop.scoreData}</p>
-      <button>+</button>
+      <button onClick={handler}>-</button>
+      <p>{prop.playerData.score}</p>
+      <button onClick={handler}>+</button>
     </div>
   );
 }
