@@ -1,5 +1,3 @@
-// // const { type } = require("@testing-library/user-event/dist/type");
-
 // let animal = [
 //   {
 //     type: "Cat",

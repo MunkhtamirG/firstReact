@@ -1,7 +1,7 @@
 import "./App.css";
 import Player from "./Player";
 import Header from "./Header";
-import React, { useState } from "react";
+import { useState } from "react";
 
 let players = [
   {
@@ -26,12 +26,15 @@ let players = [
   },
 ];
 
-function App(prop) {
+function App() {
+  const [score, changeScore] = useState(players.forEach((e) => e.score));
   function modifyScore(name, plusMinus) {
     if (plusMinus == "+") {
       players[findPlayerIndex(name)].score++;
+      changeScore(players[findPlayerIndex(name)].score);
     } else {
       players[findPlayerIndex(name)].score--;
+      changeScore(players[findPlayerIndex(name)].score);
     }
     console.log(players);
   }
@@ -44,6 +47,7 @@ function App(prop) {
     });
     return foundIndex;
   }
+
   return (
     <div className="App">
       <Header />
