@@ -37,8 +37,3 @@ function App() {
 }
 
 export default App;
-
-fetch("../data/player.json")
-  .then((res) => JSON.parse(res))
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));

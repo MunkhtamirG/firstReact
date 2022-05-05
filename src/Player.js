@@ -1,4 +1,4 @@
-import Score from "../src/Score";
+import Score, { aaaSss } from "../src/Score";
 function Player(prop) {
   return (
     <div className="box">
