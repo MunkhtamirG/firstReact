@@ -27,23 +27,23 @@ let players = [
 ];
 
 function App() {
-  const [score, changeScore] = useState(players.forEach((e) => e.score));
+  const [, changeScore] = useState(players.forEach((e) => e.score));
   function modifyScore(name, plusMinus) {
-    if (plusMinus == "+") {
+    if (plusMinus === "+") {
       players[findPlayerIndex(name)].score++;
       changeScore(players[findPlayerIndex(name)].score);
     } else {
       players[findPlayerIndex(name)].score--;
       changeScore(players[findPlayerIndex(name)].score);
     }
-    console.log(players);
   }
   function findPlayerIndex(playerName) {
     let foundIndex = 0;
     players.map((player, index) => {
-      if (player.name == playerName) {
+      if (player.name === playerName) {
         foundIndex = index;
       }
+      return foundIndex;
     });
     return foundIndex;
   }
