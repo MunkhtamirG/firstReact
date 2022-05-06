@@ -1,9 +1,17 @@
+import { useState } from "react";
 import Score from "../src/Score";
 function Player(prop) {
+  const [score, changeScore] = useState(prop.playerData.score);
+  let boxClass;
+  if (prop.avarege > score) {
+    boxClass = "box";
+  } else {
+    boxClass = "boxBG";
+  }
   return (
-    <div className="box">
+    <div className={boxClass}>
       <h3>{prop.playerData.name}</h3>
-      <Score playerData={prop.playerData} modifyScore={prop.modifyScore} />
+      <Score score={score} changeScore={changeScore} />
     </div>
   );
 }

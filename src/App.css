@@ -43,6 +43,15 @@ body {
   padding-right: 90px;
   background-color: #e9d8a6;
 }
+.boxBG {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #94d2bd;
+  padding-left: 150px;
+  padding-right: 90px;
+  background-color: #eec64d;
+}
 .data {
   width: 30%;
   display: flex;
