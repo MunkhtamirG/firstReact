@@ -27,14 +27,21 @@ let players = [
 ];
 
 function App() {
-  const [, changeScore] = useState(players.forEach((e) => e.score));
+  let total = 0;
+
+  players.forEach((player) => {
+    total += player.score;
+  });
+  let avarege = total / players.length;
+
+  const [score, changeScore] = useState(players.forEach((e) => e.score));
   function modifyScore(name, plusMinus) {
     if (plusMinus === "+") {
       players[findPlayerIndex(name)].score++;
-      changeScore(players[findPlayerIndex(name)].score);
+      changeScore(score + 1);
     } else {
       players[findPlayerIndex(name)].score--;
-      changeScore(players[findPlayerIndex(name)].score);
+      changeScore(score - 1);
     }
   }
   function findPlayerIndex(playerName) {
@@ -53,7 +60,12 @@ function App() {
       <Header />
       {players.map((player, index) => {
         return (
-          <Player key={index} playerData={player} modifyScore={modifyScore} />
+          <Player
+            key={index}
+            playerData={player}
+            modifyScore={modifyScore}
+            avarege={avarege}
+          />
         );
       })}
     </div>
