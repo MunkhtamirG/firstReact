@@ -1,19 +1,31 @@
+import { useState } from "react";
 function Score(prop) {
+  const [score, changeScore] = useState(prop.player.score);
+  let boxClass;
+
+  if (prop.avarege > score) {
+    boxClass = "box";
+  } else {
+    boxClass = "boxBG";
+  }
   function handler(e) {
     if (e.target.textContent === "+") {
       // prop.modifyScore(prop.playerData.name, "+");
-      prop.changeScore(prop.score + 1);
+      changeScore(score + 1);
     } else {
       // prop.modifyScore(prop.playerData.name, "-");
-      prop.changeScore(prop.score - 1);
+      changeScore(score - 1);
     }
   }
   return (
     <div className="data">
-      <button onClick={handler}>-</button>
-      {/* <p>{prop.playerData.score}</p> */}
-      <p>{prop.score}</p>
-      <button onClick={handler}>+</button>
+      {prop.player.name}
+      <div className="inner">
+        <button onClick={handler}>-</button>
+        {/* <p>{prop.playerData.score}</p> */}
+        <p>{score}</p>
+        <button onClick={handler}>+</button>
+      </div>
     </div>
   );
 }

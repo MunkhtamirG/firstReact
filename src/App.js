@@ -35,10 +35,8 @@ function App() {
         return -1;
       }
     });
-    getSort(name);
-    console.log(name);
+    return name;
   }
-  console.log(players);
 
   let total = 0;
 
@@ -46,17 +44,11 @@ function App() {
     total += player.score;
   });
   let avarege = total / players.length;
-  console.log(name);
+
   return (
     <div className="App">
       <Header lengt={players.length} />
-      <div className="buttons">
-        <button onClick={sortName}>Name</button>
-        <button>Score</button>
-      </div>
-      {name.map((player, index) => {
-        return <Player key={index} player={player} avarege={avarege} />;
-      })}
+      <Player players={players} avarege={avarege} />
     </div>
   );
 }

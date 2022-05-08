@@ -36,11 +36,10 @@ body {
 }
 .box {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  border: 2px solid #94d2bd;
-  padding-left: 150px;
-  padding-right: 90px;
+  align-content: space-between;
+
   background-color: #e9d8a6;
 }
 .boxBG {
@@ -71,10 +70,14 @@ body {
   margin-right: 46px;
 }
 .data {
-  width: 30%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  border: 2px solid #94d2bd;
+  padding-left: 150px;
+  padding-right: 90px;
 }
 .data p {
   font-weight: 700;
@@ -86,4 +89,8 @@ body {
   background-color: #ee9b00;
   border: 0;
   border-radius: 4px;
+}
+.inner {
+  display: flex;
+  width: 25%;
 }
