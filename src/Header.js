@@ -1,11 +1,10 @@
-function Header() {
+function Header(props) {
   return (
     <div className="header">
       <h1>Scoreboard</h1>
       <div className="rightSide">
-        <h2>Player:</h2>
-
-        <h2>3</h2>
+        <h2>Players:</h2>
+        <h2>{props.lengt}</h2>
       </div>
     </div>
   );

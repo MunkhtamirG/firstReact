@@ -47,10 +47,28 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #94d2bd;
+  border: 2px solid #94d2bd;
   padding-left: 150px;
   padding-right: 90px;
   background-color: #eec64d;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: 150px;
+  padding-right: 90px;
+  background-color: #94d2bd;
+  border-top: 3px solid #e9d8a6;
+}
+.buttons button {
+  background-color: salmon;
+  border: 1px solid salmon;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+  margin-right: 46px;
 }
 .data {
   width: 30%;
