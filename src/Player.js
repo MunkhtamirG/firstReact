@@ -1,30 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Score from "../src/Score";
 
 function Player(prop) {
-  const [sampleData, setSampleData] = useState([]);
-  useEffect(() => {
-    setSampleData(prop.players);
-  }, []);
+  const [player, setPlayer] = useState(prop.players);
 
   function handleSort() {
-    const sortedData = [...sampleData].sort((a, b) => {
+    const sortedData = [...player].sort((a, b) => {
       return a.name > b.name ? 1 : -1;
     });
-    setSampleData(sortedData);
+    setPlayer(sortedData);
     console.log(sortedData);
   }
 
   function handleSort2() {
-    const sortedData = [...sampleData].sort((a, b) => {
-      return a.score > b.score ? -1 : 1;
+    const sortedData = new Array(...player).sort((a, b) => {
+      return a.score > b.score ? 1 : -1;
     });
 
-    setSampleData(sortedData);
+    setPlayer(sortedData);
     console.log(sortedData);
   }
 
-  const names = sampleData.map((e) => {
+  const names = player.map((e) => {
     return <Score key={e.score} player={e} />;
   });
 

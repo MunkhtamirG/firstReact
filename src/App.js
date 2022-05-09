@@ -27,16 +27,16 @@ let players = [
 ];
 
 function App() {
-  const [name, getSort] = useState(players);
+  // const [name, getSort] = useState(players);
 
-  function sortName() {
-    players.sort((a, b) => {
-      if (a.name.toLowerCase() > b.name.toLowerCase()) {
-        return -1;
-      }
-    });
-    return name;
-  }
+  // function sortName() {
+  //   players.sort((a, b) => {
+  //     if (a.name.toLowerCase() > b.name.toLowerCase()) {
+  //       return -1;
+  //     }
+  //   });
+  //   return name;
+  // }
 
   let total = 0;
 
