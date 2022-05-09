@@ -1,5 +1,5 @@
 import "./App.css";
-import Player from "./Player";
+// import Player from "./Player";
 import Header from "./Header";
 import { useState } from "react";
 
@@ -27,51 +27,75 @@ let players = [
 ];
 
 function App() {
-  // const [name, getSort] = useState(players);
+  const [playersArr, setPlayers] = useState(players);
+  const [changed, setChanged] = useState(true);
 
-  // function sortName() {
-  //   players.sort((a, b) => {
-  //     if (a.name.toLowerCase() > b.name.toLowerCase()) {
-  //       return -1;
-  //     }
-  //   });
-  //   return name;
-  // }
+  function incrementFunc(increment, playerName) {
+    let tempMemos = [...playersArr];
+    let tempMemo = tempMemos.map((e) => {
+      if (e.name === playerName) {
+        e.score += increment;
+      }
+      return e;
+    });
 
-  let total = 0;
+    setPlayers(tempMemo);
+  }
 
-  players.forEach((player) => {
-    total += player.score;
-  });
-  let avarege = total / players.length;
+  function sortFuncByName() {
+    let tempMemos = [...playersArr];
+    tempMemos.sort((a, b) => {
+      return a.name > b.name ? 1 : -1;
+    });
+    setPlayers(tempMemos);
+    setChanged(!changed);
+  }
 
+  function sortFuncByScore() {
+    let tempMemos = [...playersArr];
+    tempMemos.sort((a, b) => {
+      return a.score > b.score ? 1 : -1;
+    });
+    setPlayers(tempMemos);
+    setChanged(!changed);
+  }
   return (
     <div className="App">
-      <Header lengt={players.length} />
-      <Player players={players} avarege={avarege} />
+      <Header players={playersArr.length} />
+      <div className="buttons">
+        <button onClick={sortFuncByName}>Name</button>
+        <button onClick={sortFuncByScore}>Score</button>
+      </div>
+      <div className="App">
+        {playersArr.map((player, index) => {
+          return (
+            <div className="player" key={index}>
+              <p>{player.name}</p>
+              <div className="data">
+                <div className="inner">
+                  <button
+                    onClick={() => {
+                      incrementFunc(-1, player.name);
+                    }}
+                  >
+                    -
+                  </button>
+                  <p>{player.score}</p>
+                  <button
+                    onClick={() => {
+                      incrementFunc(1, player.name);
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
 
 export default App;
-
-// const [score, changeScore] = useState(players.forEach((e) => e.score));
-// function modifyScore(name, plusMinus) {
-//   if (plusMinus === "+") {
-//     players[findPlayerIndex(name)].score++;
-//     changeScore(score + 1);
-//   } else {
-//     players[findPlayerIndex(name)].score--;
-//     changeScore(score - 1);
-//   }
-// }
-// function findPlayerIndex(playerName) {
-//   let foundIndex = 0;
-//   players.map((player, index) => {
-//     if (player.name === playerName) {
-//       foundIndex = index;
-//     }
-//     return foundIndex;
-//   });
-//   return foundIndex;
-// }
