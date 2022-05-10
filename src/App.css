@@ -87,3 +87,7 @@ body {
   width: 100px;
   justify-content: space-between;
 }
+.dogDiv {
+  width: 100%;
+  margin: auto;
+}
