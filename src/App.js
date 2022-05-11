@@ -1,5 +1,5 @@
 import "./App.css";
-// import Player from "./Player";
+import Modal from "./Modal";
 import Header from "./Header";
 import { useState } from "react";
 
@@ -94,6 +94,8 @@ function App() {
           );
         })}
       </div>
+
+      <button className="btn btn-primary w-100">ADD PLAYER</button>
     </div>
   );
 }
