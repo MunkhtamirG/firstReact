@@ -36,7 +36,7 @@ body {
 }
 .player {
   display: flex;
-  padding: 10px 120px 10px 120px;
+  padding: 10px 20px 10px 120px;
   justify-content: space-between;
   align-content: space-between;
   border: #94d2bd 1px solid;

@@ -14,7 +14,7 @@ function Player(prop) {
       {prop.playersArr.map((player, index) => {
         return (
           <div className="player" key={index}>
-            <p>
+            <p className="col-8">
               {player.image}
               {player.name}
             </p>
@@ -43,7 +43,7 @@ function Player(prop) {
                 removeHandler(player.name);
               }}
             >
-              REMOVE
+              x
             </button>
           </div>
         );
