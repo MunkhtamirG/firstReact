@@ -14,10 +14,8 @@ function Player(prop) {
       {prop.playersArr.map((player, index) => {
         return (
           <div className="player" key={index}>
-            <p className="col-8">
-              {player.image}
-              {player.name}
-            </p>
+            <span>{player.image}</span>
+            <p className="col-8">{player.name}</p>
             <div className="data">
               <div className="inner">
                 <button
