@@ -1,6 +1,6 @@
 import "./App.css";
-import { AddPlayer } from "./AddPlayer";
-import Header from "./Header";
+import { AddPlayer } from "./components/AddPlayer";
+import Header from "./components/Header";
 import { useState } from "react";
 
 let players = [
@@ -45,7 +45,6 @@ function App() {
   function addsPlayer(obj) {
     let newData = [...playersArr];
     newData.push(obj);
-    console.log(newData);
     setPlayers(newData);
   }
 
