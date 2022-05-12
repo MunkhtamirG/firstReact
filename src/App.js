@@ -1,5 +1,5 @@
 import "./App.css";
-import Modal from "./Modal";
+import { AddPlayer } from "./AddPlayer";
 import Header from "./Header";
 import { useState } from "react";
 
@@ -40,6 +40,13 @@ function App() {
     });
 
     setPlayers(tempMemo);
+  }
+
+  function addsPlayer(obj) {
+    let newData = [...playersArr];
+    newData.push(obj);
+    console.log(newData);
+    setPlayers(newData);
   }
 
   function sortFuncByName() {
@@ -94,8 +101,7 @@ function App() {
           );
         })}
       </div>
-
-      <button className="btn btn-primary w-100">ADD PLAYER</button>
+      <AddPlayer addsPlayer={addsPlayer} />
     </div>
   );
 }
