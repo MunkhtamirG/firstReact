@@ -1,7 +1,8 @@
 import "./App.css";
 import { AddPlayer } from "./components/AddPlayer";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Player from "./components/Player";
 
 let players = [
   {
@@ -17,7 +18,7 @@ let players = [
   {
     name: "Odko",
     age: "15",
-    score: 35,
+    score: 44,
   },
   {
     name: "Burmaa",
@@ -60,46 +61,40 @@ function App() {
   function sortFuncByScore() {
     let tempMemos = [...playersArr];
     tempMemos.sort((a, b) => {
-      return a.score > b.score ? 1 : -1;
+      return a.score > b.score ? -1 : 1;
     });
     setPlayers(tempMemos);
     setChanged(!changed);
   }
+  useEffect(() => {
+    let max = playersArr[0];
+    playersArr.forEach((e) => {
+      if (e.score > max.score) {
+        max = e;
+      }
+      e.image = "";
+    });
+    max.image = "👑";
+    setChanged(!changed);
+  }, [playersArr]);
+
   return (
     <div className="App">
       <Header players={playersArr.length} />
       <div className="buttons">
-        <button onClick={sortFuncByName}>Name</button>
-        <button onClick={sortFuncByScore}>Score</button>
+        <button onClick={sortFuncByName} className="btn btn-primary">
+          Name
+        </button>
+        <button onClick={sortFuncByScore} className="btn btn-primary">
+          Score
+        </button>
       </div>
-      <div className="App">
-        {playersArr.map((player, index) => {
-          return (
-            <div className="player" key={index}>
-              <p>{player.name}</p>
-              <div className="data">
-                <div className="inner">
-                  <button
-                    onClick={() => {
-                      incrementFunc(-1, player.name);
-                    }}
-                  >
-                    -
-                  </button>
-                  <p>{player.score}</p>
-                  <button
-                    onClick={() => {
-                      incrementFunc(1, player.name);
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Player
+        playersArr={playersArr}
+        incrementFunc={incrementFunc}
+        setPlayers={setPlayers}
+      />
+
       <AddPlayer addsPlayer={addsPlayer} />
     </div>
   );
