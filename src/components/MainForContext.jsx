@@ -2,36 +2,14 @@ import { AddPlayer } from "./AddPlayer";
 import Header from "./Header";
 import { useEffect, useState } from "react";
 import Player from "./Player";
-
-let players = [
-  {
-    name: "Erkhes",
-    age: "15",
-    score: 25,
-  },
-  {
-    name: "Miigaa",
-    age: "15",
-    score: 15,
-  },
-  {
-    name: "Odko",
-    age: "15",
-    score: 44,
-  },
-  {
-    name: "Burmaa",
-    age: "15",
-    score: 45,
-  },
-];
+import { usePlayers } from "../context/PlayerContext";
 
 function Main() {
-  const [playersArr, setPlayers] = useState(players);
+  const [players, setPlayers] = usePlayers();
   const [changed, setChanged] = useState(true);
 
   function incrementFunc(increment, playerName) {
-    let tempMemos = [...playersArr];
+    let tempMemos = [...players];
     let tempMemo = tempMemos.map((e) => {
       if (e.name === playerName) {
         e.score += increment;
@@ -43,13 +21,13 @@ function Main() {
   }
 
   function addsPlayer(obj) {
-    let newData = [...playersArr];
+    let newData = [...players];
     newData.push(obj);
     setPlayers(newData);
   }
 
   function sortFuncByName() {
-    let tempMemos = [...playersArr];
+    let tempMemos = [...players];
     tempMemos.sort((a, b) => {
       return a.name > b.name ? 1 : -1;
     });
@@ -58,7 +36,7 @@ function Main() {
   }
 
   function sortFuncByScore() {
-    let tempMemos = [...playersArr];
+    let tempMemos = [...players];
     tempMemos.sort((a, b) => {
       return a.score > b.score ? -1 : 1;
     });
@@ -75,11 +53,11 @@ function Main() {
     });
     max.image = "👑";
     setChanged(!changed);
-  }, [playersArr]);
+  }, [players]);
 
   return (
     <div className="App">
-      <Header players={playersArr.length} />
+      <Header players={players.length} />
       <div className="buttons">
         <button onClick={sortFuncByName} className="btn btn-primary">
           Name

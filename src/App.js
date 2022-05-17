@@ -1,4 +1,4 @@
-import Main from "./components/Main";
+import MainForContext from "./components/Main";
 import MainHeader from "./components/MainHeader";
 import { Route, Routes } from "react-router";
 import MainPlayer from "./components/MainPlayer";
@@ -10,7 +10,7 @@ function App() {
     <div>
       <MainHeader />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<MainForContext />} />
         <Route path="/player" element={<MainPlayer />} />
         <Route path="/about" element={<MainAbout />} />
         <Route path="*" element={<NotFound />} />
