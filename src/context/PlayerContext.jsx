@@ -8,7 +8,6 @@ export function usePlayers() {
 
 export default function PlayerProvider(props) {
   const [players, setPlayers] = useState();
-  console.log(players);
   useEffect(() => {
     fetch("players.json")
       .then((e) => {
@@ -20,9 +19,9 @@ export default function PlayerProvider(props) {
   }, []);
   useEffect(() => {
     if (!localStorage.getItem("players")) {
-      window.localStorage.setItem("players", JSON.stringify(players));
+      localStorage.setItem("players", JSON.stringify(players));
     } else {
-      let data = JSON.parse(window.localStorage.getItem("players"));
+      let data = JSON.parse(localStorage.getItem("players"));
       setPlayers(data);
     }
   }, []);
