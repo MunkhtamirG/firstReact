@@ -20,9 +20,10 @@ export default function PlayerProvider(props) {
   }, []);
   useEffect(() => {
     if (!localStorage.getItem("players")) {
-      localStorage.setItem("players", JSON.stringify(players));
+      window.localStorage.setItem("players", JSON.stringify(players));
     } else {
-      // setPlayers(localStorage.getItem("players"));
+      let data = JSON.parse(window.localStorage.getItem("players"));
+      setPlayers(data);
     }
   }, []);
 
