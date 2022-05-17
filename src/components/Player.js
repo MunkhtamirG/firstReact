@@ -1,18 +1,21 @@
+import { usePlayers } from "../context/PlayerContext";
 function Player(prop) {
+  const [players, setPlayers] = usePlayers();
   function removeHandler(playerName) {
-    let newArr = [...prop.playersArr];
+    let newArr = [...players];
 
     let filtered = newArr.filter((n) => {
       return n.name !== playerName;
     });
 
-    prop.setPlayers(filtered);
+    setPlayers(filtered);
+    localStorage.setItem("players", JSON.stringify(filtered));
   }
 
   return (
     <div className="App">
-      {prop.players &&
-        prop.players.map((player, index) => {
+      {players &&
+        players.map((player, index) => {
           return (
             <div className="player" key={index}>
               <span>{player.image}</span>

@@ -7,7 +7,7 @@ import { usePlayers } from "../context/PlayerContext";
 function MainForContext() {
   const [players, setPlayers] = usePlayers();
   const [changed, setChanged] = useState(true);
-  console.log(players);
+  // console.log(players);
 
   function incrementFunc(increment, playerName) {
     let tempMemos = [...players];
@@ -19,12 +19,14 @@ function MainForContext() {
     });
 
     setPlayers(tempMemo);
+    localStorage.setItem("players", JSON.stringify(tempMemos));
   }
 
   function addsPlayer(obj) {
     let newData = [...players];
     newData.push(obj);
     setPlayers(newData);
+    localStorage.setItem("players", JSON.stringify(newData));
   }
 
   function sortFuncByName() {
@@ -34,6 +36,7 @@ function MainForContext() {
     });
     setPlayers(tempMemos);
     setChanged(!changed);
+    localStorage.setItem("players", JSON.stringify(tempMemos));
   }
 
   function sortFuncByScore() {
@@ -43,6 +46,7 @@ function MainForContext() {
     });
     setPlayers(tempMemos);
     setChanged(!changed);
+    localStorage.setItem("players", JSON.stringify(tempMemos));
   }
   useEffect(() => {
     if (players) {
@@ -69,11 +73,7 @@ function MainForContext() {
           Score
         </button>
       </div>
-      <Player
-        players={players}
-        incrementFunc={incrementFunc}
-        setPlayers={setPlayers}
-      />
+      <Player incrementFunc={incrementFunc} setPlayers={setPlayers} />
 
       <AddPlayer addsPlayer={addsPlayer} />
     </div>

@@ -8,7 +8,7 @@ export function usePlayers() {
 
 export default function PlayerProvider(props) {
   const [players, setPlayers] = useState();
-
+  console.log(players);
   useEffect(() => {
     fetch("players.json")
       .then((e) => {
@@ -18,7 +18,14 @@ export default function PlayerProvider(props) {
         setPlayers(e.players);
       });
   }, []);
-  console.log(players);
+  useEffect(() => {
+    if (!localStorage.getItem("players")) {
+      localStorage.setItem("players", JSON.stringify(players));
+    } else {
+      // setPlayers(localStorage.getItem("players"));
+    }
+  }, []);
+
   return (
     <PlayersContext.Provider value={[players, setPlayers]}>
       {props.children}
