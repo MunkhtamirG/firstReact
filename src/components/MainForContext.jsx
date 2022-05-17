@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Player from "./Player";
 import { usePlayers } from "../context/PlayerContext";
 
-function Main() {
+function MainForContext() {
   const [players, setPlayers] = usePlayers();
   const [changed, setChanged] = useState(true);
+  console.log(players);
 
   function incrementFunc(increment, playerName) {
     let tempMemos = [...players];
@@ -44,20 +45,22 @@ function Main() {
     setChanged(!changed);
   }
   useEffect(() => {
-    let max = playersArr[0];
-    playersArr.forEach((e) => {
-      if (e.score > max.score) {
-        max = e;
-      }
-      e.image = "";
-    });
-    max.image = "👑";
-    setChanged(!changed);
+    if (players) {
+      let max = players[0];
+      players.forEach((e) => {
+        if (e.score > max.score) {
+          max = e;
+        }
+        e.image = "";
+      });
+      max.image = "👑";
+      setChanged(!changed);
+    }
   }, [players]);
 
   return (
     <div className="App">
-      <Header players={players.length} />
+      <Header players={players} />
       <div className="buttons">
         <button onClick={sortFuncByName} className="btn btn-primary">
           Name
@@ -67,7 +70,7 @@ function Main() {
         </button>
       </div>
       <Player
-        playersArr={playersArr}
+        players={players}
         incrementFunc={incrementFunc}
         setPlayers={setPlayers}
       />
@@ -77,4 +80,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainForContext;

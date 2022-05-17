@@ -1,4 +1,4 @@
-import MainForContext from "./components/Main";
+import MainForContext from "./components/MainForContext";
 import MainHeader from "./components/MainHeader";
 import { Route, Routes } from "react-router";
 import MainPlayer from "./components/MainPlayer";

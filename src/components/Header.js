@@ -4,7 +4,7 @@ function Header(props) {
       <h1>Scoreboard</h1>
       <div className="rightSide">
         <h2>Players:</h2>
-        <h2>{props.players}</h2>
+        <h2>{props.players && props.players.length}</h2>
       </div>
     </div>
   );

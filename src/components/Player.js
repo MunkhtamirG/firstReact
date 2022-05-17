@@ -11,41 +11,42 @@ function Player(prop) {
 
   return (
     <div className="App">
-      {prop.playersArr.map((player, index) => {
-        return (
-          <div className="player" key={index}>
-            <span>{player.image}</span>
-            <p className="col-8">{player.name}</p>
-            <div className="data">
-              <div className="inner">
-                <button
-                  onClick={() => {
-                    prop.incrementFunc(-1, player.name);
-                  }}
-                >
-                  -
-                </button>
-                <p>{player.score}</p>
-                <button
-                  onClick={() => {
-                    prop.incrementFunc(1, player.name);
-                  }}
-                >
-                  +
-                </button>
+      {prop.players &&
+        prop.players.map((player, index) => {
+          return (
+            <div className="player" key={index}>
+              <span>{player.image}</span>
+              <p className="col-8">{player.name}</p>
+              <div className="data">
+                <div className="inner">
+                  <button
+                    onClick={() => {
+                      prop.incrementFunc(-1, player.name);
+                    }}
+                  >
+                    -
+                  </button>
+                  <p>{player.score}</p>
+                  <button
+                    onClick={() => {
+                      prop.incrementFunc(1, player.name);
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  removeHandler(player.name);
+                }}
+              >
+                x
+              </button>
             </div>
-            <button
-              className="btn btn-danger"
-              onClick={() => {
-                removeHandler(player.name);
-              }}
-            >
-              x
-            </button>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 }

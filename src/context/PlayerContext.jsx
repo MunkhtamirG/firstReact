@@ -10,17 +10,15 @@ export default function PlayerProvider(props) {
   const [players, setPlayers] = useState();
 
   useEffect(() => {
-    fetch("data/players.json")
-      .then((e) => e.json())
+    fetch("players.json")
       .then((e) => {
-        if (!localStorage.getItem(players)) {
-          localStorage.setItem(players);
-        } else {
-          setPlayers(localStorage.setItem(e));
-        }
+        return e.json();
+      })
+      .then((e) => {
+        setPlayers(e.players);
       });
-  }, [players]);
-
+  }, []);
+  console.log(players);
   return (
     <PlayersContext.Provider value={[players, setPlayers]}>
       {props.children}
