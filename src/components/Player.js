@@ -3,7 +3,7 @@ function Player(prop) {
     let newArr = [...prop.playersArr];
 
     let filtered = newArr.filter((n) => {
-      return n.name != playerName;
+      return n.name !== playerName;
     });
 
     prop.setPlayers(filtered);
